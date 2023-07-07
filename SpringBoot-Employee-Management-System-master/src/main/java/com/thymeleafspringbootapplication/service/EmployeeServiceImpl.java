@@ -10,11 +10,11 @@ import com.thymeleafspringbootapplication.model.Employee;
 import com.thymeleafspringbootapplication.repository.EmployeeRepository;
 
 @Service
-public class EmployeeServiceImpl implements EmployeeService{
-	
+public class EmployeeServiceImpl implements EmployeeService {
+
 	@Autowired
 	private EmployeeRepository employeeRepository;
-	
+
 	@Override
 	public List<Employee> getAllEmployees() {
 		return employeeRepository.findAll();
@@ -30,7 +30,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 		Optional<Employee> optional = employeeRepository.findById(id);
 		Employee employee;
 		if (optional.isPresent()) {
-			employee =  optional.get();
+			employee = optional.get();
 		} else {
 			throw new RuntimeException(" Employee not found for id :: " + id);
 		}
