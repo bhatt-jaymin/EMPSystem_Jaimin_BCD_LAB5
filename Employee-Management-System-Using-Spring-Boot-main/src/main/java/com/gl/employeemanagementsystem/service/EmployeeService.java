@@ -15,42 +15,42 @@ public class EmployeeService {
 	// We will use it to handle the data
 	EmployeeRepository employeeRepository;
 
-	//	get all employees
+	// get all employees
 	public List<Employee> getAllEmployees() {
 
-		//		find all employees data, then return it
+		// find all employees data, then return it
 		return employeeRepository.findAll();
 	}
 
 	// save an employee
 	public void saveEmployee(Employee emp) {
-		//		save employee data to database
+		// save employee data to database
 		employeeRepository.save(emp);
 	}
 
-	//	get employee by id
+	// get employee by id
 	public Employee getEmployeeById(Long id) {
-		//		find an employee by id
+		// find an employee by id
 		Employee emp = employeeRepository.getById(id);
 
-		//		if there is not an employee who has the id, throw the error.
+		// if there is not an employee who has the id, throw the error.
 		if (emp == null) {
 			throw new RuntimeException("Employee not found");
 		}
 		return emp;
 	}
 
-	//	delete employee by id
+	// delete employee by id
 	public String deleteEmployeeById(Long id) {
-		//		find an employee by id
+		// find an employee by id
 		Employee emp = employeeRepository.getById(id);
 
-		//		if there is not an employee who has the id, throw the error.
+		// if there is not an employee who has the id, throw the error.
 		if (emp == null) {
 			throw new RuntimeException("Employee not found");
 		}
 
-		//		delete an employee who has the id from the database
+		// delete an employee who has the id from the database
 		employeeRepository.deleteById(id);
 		return "Deleted: " + emp.getFirstName() + " " + emp.getLastName();
 	}

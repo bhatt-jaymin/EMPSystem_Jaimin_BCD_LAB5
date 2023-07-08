@@ -9,7 +9,8 @@ import javax.persistence.Id;
 public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	//	By @GeneratedValue, JPA makes a unique key automatically and applies the key to the field having @Id
+	// By @GeneratedValue, JPA makes a unique key automatically and applies the key
+	// to the field having @Id
 	private long id;
 	private String firstName;
 	private String lastName;
